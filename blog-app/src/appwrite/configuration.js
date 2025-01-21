@@ -78,6 +78,53 @@ export class Service {
         return false;
     }
   }
+
+  async getPosts(queries=[Query.equal("status","active")]){
+    try {
+      return await this.databases.listDocuments(
+        config.appwriteDatabaseId,
+        config.appwriteCollectionId,
+        queries,
+      )
+    } catch (error) {
+      console.log("Appwrite serive :: getCurrentUser :: error", error);
+      return false;
+    }
+  }
+
+  async uploadFile(file){
+    try {
+      return await this.bucket.createFile(
+        config.appwriteBucketId,
+        ID.unique(),
+        file
+      )
+    } catch (error) {
+      console.log("Appwrite serive :: getCurrentUser :: error", error);
+      return false;
+    }
+  }
+
+
+  async deleteFile(fileId){
+    try {
+      await this.bucket.deleteFile(
+        config.appwriteBucketId,
+        fileId,
+      )
+      return true;
+    } catch (error) {
+      console.log("Appwrite serive :: getCurrentUser :: error", error);
+      return false;
+    }
+  }
+
+  async getFilePreview(fileId){
+    return this.bucket.getFilePreview(
+      config.appwriteBucketId,
+      fileId
+    )
+  }
 }
 
 const service = new Service();
