@@ -5,6 +5,8 @@ import LogoutBtn from "./LogoutBtn";
 import Container from "./Container"
 import Button from "./Button";
 import Input from "./Input";
+import RTK from "./RTK";
+import Select from './Select'
 
 export {
     Header,
@@ -14,4 +16,6 @@ export {
     Container,
     Button,
     Input,
+    RTK,
+    Select
 }
