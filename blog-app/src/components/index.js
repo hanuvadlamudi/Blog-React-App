@@ -6,7 +6,11 @@ import Container from "./Container"
 import Button from "./Button";
 import Input from "./Input";
 import RTK from "./RTK";
-import Select from './Select'
+import Select from './Select';
+import Signup from './Signup';
+import Login from './Login';
+import PostForm from './PostForm';
+import PostCard from './PostCard';
 
 export {
     Header,
@@ -17,5 +21,9 @@ export {
     Button,
     Input,
     RTK,
-    Select
+    Select,
+    Signup,
+    Login,
+    PostForm,
+    PostCard,
 }
